@@ -1,0 +1,24 @@
+<div ng-controller='customersController' style='width: 80%;margin-top:30px;margin-left:30px;'>
+	<h3><u>Add a new customer!</u></h3>
+	<form>
+		Customer Name: <input type='text' ng-model='newCustomer.name' />
+		<input type='submit' value='Add' ng-click='addCustomer()' />
+	</form>
+	<p style='color:red;' ng-bind="message"></p>
+	<br>
+	<input type='text' ng-model='filter_name' placeholder='search name...' class='pull-right' />
+	<table class='table table-striped'>
+		<tr>
+			<th>Customer Name</th>
+			<th>Created Date</th>
+			<th>Actions</th>
+		</tr>
+		<tr ng-repeat="customer in customers | filter: filter_name | orderBy:'created_at'">
+			<td ng-bind='customer.name'></td>
+			<td ng-bind="customer.created_at | date:'longDate'"></td>
+			<td>
+				<button class='btn btn-danger' ng-click='removeCustomer(customer)'>Remove</button>
+			</td>
+		</tr>
+	</table>	
+</div>

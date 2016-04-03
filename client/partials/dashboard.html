@@ -1,0 +1,26 @@
+<div ng-controller='dashboardsController' style='width: 80%;margin-top:30px;margin-left:30px;'>
+	<div id='side_menu'>
+		<h3><u>Filter</u></h3>
+		<input type='text' ng-model='filter_name' placeholder='search name...' / style='margin-bottom:30px;'>
+	</div>
+	<div id='main'>
+		<div id='products'>
+			<div class='product' ng-repeat="product in products | filter: filter_name | orderBy: '-created_at' | limitTo: 5">
+				<img ng-src="{{product.image}}" alt='Product Image' height='100px' width='90px' >
+				{{product.name}}<br>
+				({{product.quantity}} left)
+			</div>
+			<p style='text-align:center'><u><a href="#/products">show more...</a></u></p>
+		</div>
+		<div id='orders'>
+			<h4><u>Recent Orders</u></h4>
+			<p ng-repeat='order in orders' style='margin-left:10px;'>{{order.customer_name}} purchased {{order.quantity}} {{order.product}} ({{order.created_at | date: 'medium'}})</p>
+			<p style='text-align:center'><u><a href="#/orders">show all orders...</a></u></p>
+		</div>
+		<div id='customers'>
+			<h4><u>New Customers</u></h4>
+			<p ng-repeat='customer in customers' style='margin-left:10px;'>{{customer.name}} joined the store ({{customer.created_at | date: 'medium'}})</p>
+			<p style='text-align:center'><u><a href="#/customers">show all customers...</a></u></p>
+		</div>
+	</div>
+</div>

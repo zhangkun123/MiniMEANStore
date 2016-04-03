@@ -1,0 +1,36 @@
+<div ng-controller='productsController' style='width: 80%;margin-top:30px;margin-left:30px;'>
+	<div id='side_menu'>
+		<h3><u>Filter</u></h3>
+		<input type='text' ng-model='filter_name' placeholder='search name...' / style='margin-bottom:30px;'>
+		<h4><u>Add a new product!</u></h4>
+		<form>
+			Name:<br>
+			<input type='text' ng-model='newProduct.name' placeholder='name...' /><br>
+			Image (url):<br>
+			<input type='text' ng-model='newProduct.image' placeholder='http://' /><br>
+			Description:<br>
+			<textarea ng-model='newProduct.description' cols='20' rows='5'></textarea><br>
+			Initial Quantity:<br>
+			<select ng-model='newProduct.quantity'>
+				<option value='1'>1</option>
+				<option value='2'>2</option>
+				<option value='3'>3</option>
+				<option value='4'>4</option>
+				<option value='5'>5</option>
+				<option value='6'>6</option>
+				<option value='7'>7</option>
+				<option value='8'>8</option>
+				<option value='9'>9</option>
+				<option value='10'>10</option>
+			</select><br>
+			<button class='btn btn-info pull-right' ng-click='addProduct()' style='margin-right:30px;'>Create</button>
+		</form>
+	</div>
+	<div id='main'>
+		<div class='product' ng-repeat="product in products | filter: filter_name | orderBy: 'created_at'">
+			<img ng-src="{{product.image}}" alt='Product Image' height='100px' width='90px' >
+			{{product.name}}<br>
+			({{product.quantity}} left)
+		</div>
+	</div>
+</div>

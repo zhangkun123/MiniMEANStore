@@ -1,0 +1,35 @@
+#side_menu{
+	width: 200px;
+	height: 600px;
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 10px;
+}
+#main{
+	width: 700px;
+	height: 600px;
+	display: inline-block;
+	vertical-align: top;
+	padding: 20px;
+}
+.product{
+	display: inline-block;
+	margin: 10px;
+	text-align: center;
+	width:100px;
+	height:150px;
+}
+#products{
+	width: 650px;
+	height: 190px;
+}
+#orders{
+	width: 650px;
+	height: 190px;
+	padding-left: 10px;
+}
+#customers{
+	width: 650px;
+	height: 190px;
+	padding-left: 10px;
+}
